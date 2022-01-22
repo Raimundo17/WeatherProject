@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Weather Project</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <!--
+    Template 2060 Newspaper
+    http://www.tooplate.com/view/2060-newspaper
+    -->
+    <link href="~/tooplate_style.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="~/nivo-slider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="~/ddsmoothmenu.css" />
+
+
+    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/ddsmoothmenu.js">
+
+    </script>
+
+    <script type="text/javascript">
+
+        ddsmoothmenu.init({
+            mainmenuid: "tooplate_menu", //menu DIV id
+            orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+            classname: 'ddsmoothmenu', //class added to menu's outer DIV
+            //customtheme: ["#1c5a80", "#18374a"],
+            contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+        })
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <div id="tooplate_wrapper">
+        <div id="tooplate_header">
+            <div id="site_title"><h1><a href="#"></a></h1></div>
+            <a class="nav-link smooth-scroll" asp-area="" asp-controller="User" asp-action="ChangeUser">@this.User.Identity.Name</a>
+            <div id="tooplate_menu" class="ddsmoothmenu">
+                <ul>
+                    <li><a class="selected" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li>
+
+                    <a>Account</a>
+                    <ul>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <li><a asp-controller="User" asp-action="Login">Login</a></li>
+                        }
+                        <li><a asp-controller="User" asp-action="Register">Register</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a asp-controller="User" asp-action="ChangeUser">Change User</a></li>
+                            <li><a asp-controller="User" asp-action="Logout" data-wow-delay="0.45s">Logout</a></li>
+                        }
+                    </ul>
+
+                </li>
+                    <li><a asp-controller="Home" asp-action="About">About</a></li>
+                </ul>
+                <br style="clear: left" />
+            </div> <!-- end of tooplate_menu -->
+        </div> <!-- END of tooplate_header -->
+
+
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+
+    </div> <!-- END of tooplate_wrapper -->
+    <div id="tooplate_bottom_wrapper">
+        <div id="tooplate_bottom">        
+            <div class="col one_fourth">
+                <h4>Pages</h4>
+                <ul class="footer_list">
+                    <li><a class="selected" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-controller="User" asp-action="Register">Register</a></li>
+                    @*<li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>*@
+                </ul>
+            </div>
+            <div class="col one_fourth">
+                <h4>Follow Us</h4>
+
+                <div class="footer_social_button">
+                    <a href="https://facebook.com"><img src="~/images/facebook.png" alt="facebook" /></a>
+                    <a href="https://flickr.com"><img src="~/images/flickr.png" alt="flickr" /></a>
+                    <a href="https://twitter.com"><img src="~/images/twitter.png" alt="twitter" /></a>
+                    <a href="https://youtube.com"><img src="~/images/youtube.png" alt="youtube" /></a>
+                    <a href="https://feed.com"><img src="~/images/feed.png" alt="rss" /></a>
+                </div>
+
+            </div>
+
+            <div class="col one_fourth no_margin_right">
+                <h4>Twitter</h4>
+                <ul class="twitter_post">
+                    <li>Suspendisse at scelerisque urna. Aenean tincidunt massa in tellus varius ultricies. <a href="#">http://bit.ly/13IwZO</a></li>
+                </ul>
+            </div>
+            <div class="cleaner"></div>
+        </div> <!-- END of tooplate_bottom -->
+    </div> <!-- END of tooplate_bottom_wrapper -->
+
+    <div id="tooplate_footer_wrapper">
+        <div id="tooplate_footer">
+            Copyright © 2021 Cinel - Weather Project
+        </div> <!-- END of tooplate_footer -->
+    </div> <!-- END of tooplate_footer_wrapper -->
+
+</body>
+</html>

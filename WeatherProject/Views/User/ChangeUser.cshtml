@@ -1,0 +1,77 @@
+﻿@model WeatherProject.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "ChangeUser";
+}
+
+<div class="content-area user-profiel" style="background-color: #FCFCFC;">
+    &nbsp;
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 profiel-container">
+
+                <form asp-action="EditUser" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="profiel-header">
+                        <h3>
+                            <b>BUILD</b> YOUR PROFILE <br>
+                            <small>This information will let us know more about you.</small>
+                        </h3>
+                        <hr>
+                    </div>
+
+                    <div class="clear">
+                        <div class="col-sm-3 col-sm-offset-1">
+                            <div class="picture-container">
+                                <div class="picture">
+                                    <label asp-for="ImageFile" class="control-label"></label>
+                                    <input asp-for="ImageFile" class="form-control" type="file" />
+                                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                    <input hidden asp-for="ImageUrl" />
+                                    <img src="@Url.Content(Model.ImageUrl)" alt="Image" />
+                                </div>
+                                <h6>Choose Picture</h6>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 padding-top-25">
+
+                            <div class="form-group">
+                                <label asp-for="FirstName">First Name</label>
+                                <input asp-for="FirstName" class="form-control" />
+                                <span asp-validation-for="FirstName" class="text-warning"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="LastName">Last Name</label>
+                                <input asp-for="LastName" class="form-control" />
+                                <span asp-validation-for="LastName" class="text-warning"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear">
+                        <br>
+                        <hr>
+                        <br>
+                        <div class="col-sm-5 col-sm-offset-1">
+
+
+                            <a asp-controller="User" asp-action="ChangePassword" class='btn btn-primary'>Change Password</a>
+
+
+                        </div>
+                    </div>
+
+
+                    <div class="text-center">
+                        <input type="submit" value="Update" class="btn btn-default" />
+                    </div>
+                    <br>
+
+                </form>
+
+            </div>
+        </div><!-- end row -->
+
+    </div>
+</div>
+

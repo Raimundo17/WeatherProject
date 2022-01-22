@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="WeatherApp.App">
+  <Application.Resources>
+
+    <!-- Application resource dictionary -->
+
+        <ResourceDictionary>
+            <!--  Parameters  -->
+            <x:String x:Key="UrlAPI">http://dataservice.accuweather.com/currentconditions/v1/</x:String>
+
+            <!--  Colors  -->
+            <Color x:Key="ColorBackground">#FFFFFFFF</Color>
+            <Color x:Key="ColorPrimary">#FFCD853F</Color>
+            <Color x:Key="ColorSecondary">#FFF8F8FF</Color>
+            <Color x:Key="ColorDanger">#FFD2691E</Color>
+            <Color x:Key="ColorAccent">#FFFF7F50</Color>
+            <Color x:Key="ColorFont">#0D0D0D</Color>
+            <Color x:Key="ColorFontInverse">#D9D9D9</Color>
+
+
+            <!--  Styles  -->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="TextColor" Value="{StaticResource ColorFontInverse}" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource ColorFont}" />
+            </Style>
+
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorSecondary}" />
+            </Style>
+
+            <Style x:Key="DangerButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorDanger}" />
+            </Style>
+
+
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</prism:PrismApplication>

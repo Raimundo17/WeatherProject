@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="WeatherApp.Views.Login"
+                    Title="{Binding Title}"
+             BackgroundColor="{StaticResource ColorBackground}">
+
+    <StackLayout Padding="10">
+
+        <Image Source="weather_login.png" WidthRequest="200" HeightRequest="200"/>
+
+        <Label Text="Email:" 
+                Margin=" 20, 50, 10, 0"/>
+        <Entry
+            Keyboard="Email"
+             Margin=" 20, 2, 20, 0"
+            Placeholder=""
+            Text="{Binding Email}" 
+            />
+        <Label Text="Password: "  Margin=" 20, 5, 20, 0"/>
+        <Entry
+            IsPassword="True"
+            Placeholder=""
+             Margin=" 20, 2, 20, 0"
+            Text="{Binding Password}" />
+        <ActivityIndicator IsRunning="{Binding IsRunning}" VerticalOptions="CenterAndExpand" />
+        <!--<Button
+            Command="{Binding LoginCommand}"
+            IsEnabled="{Binding IsEnabled}"
+            Text="Login"
+            Clicked="Button_Clicked"
+            Margin=" 0, 0, 0, 130"
+            BackgroundColor="Goldenrod"/>-->
+        <Button Text="Login"
+                Command="{Binding LoginCommand}"/>
+        
+        <Label HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin=" 0, 0, 0, 100">
+            <Label.FormattedText>
+                <FormattedString>
+
+                    <Span Text="Register" TextColor="#2F4F4F" FontSize="32">
+                        <Span.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ClickCommand}" 
+                                  CommandParameter="https://weatherproject20211104225842.azurewebsites.net/User/Register" />
+                        </Span.GestureRecognizers>
+                    </Span>
+                    <!--<Span Text=" Quase tudo para a plataforma .NET" />-->
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+    </StackLayout>
+</ContentPage>
+    
+  
